@@ -45,6 +45,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      # ⭐ 추가된 부분 (gradlew 실행 권한 부여)
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       # Step 5: 테스트 실행
       - name: Run tests
         run: ./gradlew test
